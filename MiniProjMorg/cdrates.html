@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--CSS only-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">    
+<style>
+      h1 {
+       margin-left: 300px;
+      }
+        div {
+            margin-left: 60px;
+        }
+    </style>
+    </head>
+<body>
+    <h1>CD Rates</h1>
+
+    <form action="cd-calculator.php" method="post" class="calculatorForm" id="CalculatorForm" name="CalculatorForm" onsubmit="calculateButtonWorking()">
+             <div itemprop="name" class="calculatorTitle">Certificate of Deposit (<abbr title="Certificate of Deposit">CD</abbr>) Calculator
+            </div>
+           <div class="calculatorInputs">
+              <div class="table commonTable">
+                  <div class="row">
+                      <div class="cell">
+                        <label for="principal">Initial Investment: $</label>
+                  </div>
+                      <div class="cell">
+                        <input name="principal" id="principal" value="20,000.00" class="nmbr_real real" type="text" title="positive real number" placeholder="amount" required="" autofocus="">
+                    </div>
+                </div>
+                          <div class="row">
+                        <div class="cell">
+                        <label for="t">Term (months):</label>
+                       </div>
+                     <div class="cell">
+                        <input name="t" id="t" value="60" class="nmbr_real real" type="text" title="0 or positive real number" placeholder="term" required="">
+                    </div>
+                  </div>
+                 <div class="row">
+                    <div class="cell">
+                        <label for="ratepercent">Annual Interest Rate: %</label>
+                    </div>
+                <div class="cell">
+                        <input name="ratepercent" id="ratepercent" value="1.65" class="nmbr_real real" type="text" title="0 or positive real number" placeholder="rate" required="">
+                    </div>
+                  </div>
+                 <div class="row">
+                    <div class="cell">
+                        <label for="n">Compounding:</label>
+                    </div>
+                <div class="cell">
+                        <label for="n" class="hidden">Compounding</label> <select name="n" id="n">
+                            <option value="365">Daily (365/Yr)</option>
+                            <option value="12" selected="">Monthly (12/Yr)</option>
+                            <option value="6">Bimonthly (6/Yr)</option>
+                            <option value="4">Quarterly (4/Yr)</option>
+                            <option value="2">Semi-Annual (2/Yr)</option>
+                            <option value="1">Annual (1/Yr)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <fieldset>
+                <legend>Taxes on Interest (optional)</legend>
+                <div class="table defaultTable">
+                    <div class="row">
+                        <div class="cell alignLeft">
+                            <label for="paytax">Pay Taxes from Interest:</label>
+                        </div>
+                        <div class="cell">
+                            <input type="checkbox" name="paytax" id="paytax" value="true">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell">
+                            <label for="ratepercent_tax">Tax Bracket: %</label>
+                        </div>
+                        <div class="cell">
+                            <input name="ratepercent_tax" id="ratepercent_tax" value="15" class="nmbr_real real" type="text" title="0 or positive real number" placeholder="bracket %" required="">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--
+        Buttons and Answer and Links
+        -->
+                                    <div class="calculatorButton floatRight" id="actionCalculate">
+            <input type="submit" value="Calculate" class="btn" name="calculateButton" id="calculateButton">
+        </div>
+        <div class="calculatorButton floatLeft" id="actionClear">
+            <input type="reset" name="reset" value="Clear" class="btn" onclick="return resetCalculator(this.form);">
+        </div>
+        <div class="clearBoth"></div>
+       <div id="calculatorAnswer">Answer:
+        <br>
+        <div id="answer"><br>
+        <div class="table prettytable centered">
+      <div class="caption">$20,000.00 invested in a<br>60 month <abbr title="Certificate of Deposit">CD</abbr></div>
+      
+  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
